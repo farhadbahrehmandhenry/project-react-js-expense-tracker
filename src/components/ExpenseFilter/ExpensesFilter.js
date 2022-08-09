@@ -22,25 +22,29 @@ const initialChartDate = [
 const ExpensesFilter = (props) => {
   const [drobdownValue, setDropdownValue] = useState('all');
   const [chartData, setChartData] = useState(initialChartDate);
-  const maxValue = props.expenses.map(expense => expense.amount).reduce((a, b) => a + b, 0);
+  const [filtered, setFilteredExpenses] = useState([]);
 
   const handleChangeDropdown = (e) => {
+    let filteredExpenses = [...props.expenses];
+
+    if (e.target.value !== 'all') {
+      filteredExpenses = props.expenses.filter(expense => expense.date.year === +e.target.value);
+    }
+
     props.onFilterExpenses(e.target.value);
+    setFilteredExpenses(filteredExpenses)
     setDropdownValue(e.target.value);
 
-    const updatedData = initialChartDate.map(data => {
-      var month = props.expenses.find(expense => expense.date.month === data.key);
+    const updatedData = [...initialChartDate].map(data => {
+      var month = filteredExpenses.find(expense => expense.date.month === data.key);
 
       if (month) data.value = month.amount;
+      else data.value = 0;
 
       return data;
     });
 
     setChartData(updatedData);
-
-    console.log(chartData)
-    console.log(updatedData)
-
   }
 
   return (
@@ -55,7 +59,7 @@ const ExpensesFilter = (props) => {
           <option value="2023">2023</option>
         </select>
       </div>
-      {drobdownValue !== 'all' && props.expenses.length > 0 ? <Chart data={chartData} maxValue={maxValue} /> : null}
+      {drobdownValue !== 'all' && filtered.length > 0 ? <Chart data={chartData} /> : null}
     </Card>
   )
 }
