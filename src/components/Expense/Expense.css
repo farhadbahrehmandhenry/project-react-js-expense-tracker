@@ -1,0 +1,49 @@
+.expense {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(200, 70, 90);
+  color: whitesmoke;
+  height: 7rem;
+  z-index: 0;
+}
+
+.expense-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  width: 5rem;
+  height: 5rem;
+  background-color: rgba(200, 150, 150, 0.5);
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+}
+
+.expense-month, .expense-year {
+  font-size: 1rem;
+}
+
+.expense-day {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.expense-title {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.expense-amount {
+  width: 5rem;
+  background-color: rgba(200, 150, 150, 0.5);
+  border-radius: 5px;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid whitesmoke;
+  font-size: 1.5rem;
+}

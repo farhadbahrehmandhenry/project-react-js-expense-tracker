@@ -1,0 +1,7 @@
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  background-color: rgba(200, 50, 50, 0.5);
+}

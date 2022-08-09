@@ -1,0 +1,14 @@
+.card {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 95%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.card:first-child {
+  margin-top: 0.5rem;
+}
